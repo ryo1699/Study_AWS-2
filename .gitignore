@@ -5,3 +5,23 @@
 *.tfvars
 crash.log
 crash.*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local secrets and AWS helper files
+.env
+.env.*
+!.env.example
+.aws-sam/
+*.pem
+
+# OS / editor
+.DS_Store
+.vscode/

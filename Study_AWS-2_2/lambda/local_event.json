@@ -1,0 +1,8 @@
+{
+  "source": "study.aws.eventbridge",
+  "detail-type": "StudyNotification",
+  "detail": {
+    "title": "課題2テスト通知",
+    "message": "EventBridgeからStep Functions、Lambdaを経由してSlackへ通知する練習です。"
+  }
+}
