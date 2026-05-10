@@ -103,7 +103,7 @@ psql "postgresql://app_user:PASSWORD@RDS_ENDPOINT:5432/tasks" \
 
 `.github/workflows/cd.yml` は次の流れです。
 
-この課題ではファイル管理をわかりやすくするため `Study_AWS-2_1/.github/workflows/cd.yml` に置いています。実際にGitHub Actionsとして動かす場合は、リポジトリ直下の `.github/workflows/cd.yml` に配置してください。
+GitHub Actionsとして実際に動くworkflowは、リポジトリ直下の `.github/workflows/study-aws-2-1-cd.yml` です。`Study_AWS-2_1/.github/workflows/cd.yml` は、課題1フォルダ内で流れを確認しやすくするための参照用コピーです。
 
 1. GitHub OIDCでAWS IAM Roleを引き受ける
 2. Docker imageをbuild
