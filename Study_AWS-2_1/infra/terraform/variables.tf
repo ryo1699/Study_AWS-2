@@ -33,3 +33,8 @@ variable "allowed_ssh_cidr" {
   description = "CIDR allowed to SSH into the bastion. Replace with your own IP range."
   default     = "0.0.0.0/32"
 }
+
+variable "bastion_key_name" {
+  type        = string
+  description = "Existing EC2 key pair name used to SSH into the bastion."
+}

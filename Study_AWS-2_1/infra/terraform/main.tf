@@ -375,6 +375,7 @@ data "aws_ami" "amazon_linux" {
 resource "aws_instance" "bastion" {
   ami                    = data.aws_ami.amazon_linux.id
   instance_type          = "t3.micro"
+  key_name               = var.bastion_key_name
   subnet_id              = aws_subnet.public[0].id
   vpc_security_group_ids = [aws_security_group.bastion.id]
 
