@@ -93,6 +93,16 @@ terraform apply \
 例:
 
 ```bash
+terraform output bastion_public_ip
+terraform output rds_endpoint
+ssh -i /path/to/your-key.pem ec2-user@BASTION_PUBLIC_IP
+```
+
+`/path/to/your-key.pem` は自分のPCにある秘密鍵ファイルのパス、`BASTION_PUBLIC_IP` は `terraform output bastion_public_ip` の値に置き換えます。EC2作成前に、AWSのEC2 Key Pair名を `terraform.tfvars` の `bastion_key_name` に設定してください。
+
+踏み台EC2に入った後:
+
+```bash
 psql "postgresql://app_user:PASSWORD@RDS_ENDPOINT:5432/tasks" \
   -f 001_create_tasks.sql
 ```
