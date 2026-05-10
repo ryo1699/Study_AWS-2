@@ -39,6 +39,37 @@ Webhook URLは `terraform.tfvars` やCI secretから渡してください。`.gi
 slack_webhook_url = "https://hooks.slack.com/services/XXX/YYY/ZZZ"
 ```
 
+## Terraform stateをS3で共有する
+
+この課題のTerraformはS3 backendを使う設定です。初回またはローカルstateからS3へ移行する場合は、state保存用S3バケットを先に作成してから `backend.hcl` を用意します。
+
+```bash
+cd Study_AWS-2_2/infra/terraform
+cp backend.hcl.example backend.hcl
+```
+
+`backend.hcl` の `bucket` を自分のS3バケット名に変更します。
+
+```hcl
+bucket  = "YOUR_TERRAFORM_STATE_BUCKET"
+key     = "study-aws-2/task2/terraform.tfstate"
+region  = "ap-northeast-1"
+encrypt = true
+```
+
+ローカルの `terraform.tfstate` をS3へ移行する場合:
+
+```bash
+terraform init -backend-config=backend.hcl -migrate-state
+```
+
+以後は同じディレクトリで通常どおり実行します。
+
+```bash
+terraform plan
+terraform apply
+```
+
 ## Step Functions入力例
 
 ```json
