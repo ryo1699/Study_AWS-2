@@ -4,6 +4,9 @@ EventBridgeのスケジュールイベントをStep Functionsへ渡し、Step Fu
 
 ## 構成
 
+draw.ioの構成図は `../AWS_architecture_diagrams.drawio` にあります。
+Mermaid版の構成メモは `../AWS_architecture_diagrams.md` にあります。
+
 ```text
 EventBridge schedule
   -> Step Functions state machine

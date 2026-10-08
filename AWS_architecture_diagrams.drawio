@@ -1,0 +1,198 @@
+<mxfile host="app.diagrams.net" modified="2026-05-15T00:00:00.000Z" agent="Codex" version="26.0.0">
+  <diagram id="task1-cloudfront-alb-ecs-rds" name="課題1 CloudFront-ALB-ECS-RDS">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1-title" value="課題1: CloudFront + ALB + ECS Fargate + RDS REST API" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#172B4D;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="900" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-aws" value="AWS account / ap-northeast-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D99000;dashed=1;verticalAlign=top;fontStyle=1;fontColor=#172B4D;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="190" y="90" width="1350" height="790" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-vpc" value="VPC 10.10.0.0/16" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF4FF;strokeColor=#2F80ED;dashed=1;verticalAlign=top;fontStyle=1;fontColor=#172B4D;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="430" y="170" width="850" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-public" value="Public subnets x2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E9F7EF;strokeColor=#2E7D32;dashed=1;verticalAlign=top;fontStyle=1;fontColor=#172B4D;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="470" y="230" width="760" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-private" value="Private subnets x2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3EAFE;strokeColor=#6F42C1;dashed=1;verticalAlign=top;fontStyle=1;fontColor=#172B4D;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="470" y="470" width="760" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-client" value="Client / Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#42526E;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="330" width="130" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-cloudfront" value="CloudFront&lt;br&gt;HTTPS redirect&lt;br&gt;default cert" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="320" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-alb" value="Application&lt;br&gt;Load Balancer&lt;br&gt;HTTP :80" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="285" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-bastion" value="Bastion EC2&lt;br&gt;SSH :22&lt;br&gt;migration host" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DFF3FF;strokeColor=#147EBA;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="285" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-nat" value="NAT Gateway&lt;br&gt;private egress" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="285" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-igw" value="Internet&lt;br&gt;Gateway" style="ellipse;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="295" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-ecs" value="ECS Fargate Service&lt;br&gt;FastAPI container&lt;br&gt;:8000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#6F42C1;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="520" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-rds" value="RDS PostgreSQL 16&lt;br&gt;tasks DB&lt;br&gt;private access" style="shape=cylinder3d;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#EDE7F6;strokeColor=#6F42C1;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="512" width="170" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-ecr" value="ECR Repository&lt;br&gt;FastAPI image" style="shape=cylinder3d;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#FFF4CC;strokeColor=#D99000;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="750" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-github" value="GitHub Actions&lt;br&gt;build / push / deploy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F5F7;strokeColor=#42526E;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="760" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-logs" value="CloudWatch Logs&lt;br&gt;/ecs/{project}-api" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CC;strokeColor=#D99000;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="760" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-iam" value="IAM Role&lt;br&gt;ECS task execution" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CC;strokeColor=#D99000;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="760" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-sg" value="Security Group rules&lt;br&gt;&lt;br&gt;ALB: 0.0.0.0/0 -&amp;gt; TCP 80&lt;br&gt;ECS: ALB SG -&amp;gt; TCP 8000&lt;br&gt;RDS: ECS SG / Bastion SG -&amp;gt; TCP 5432&lt;br&gt;Bastion: allowed_ssh_cidr -&amp;gt; TCP 22" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C1C7D0;fontSize=13;align=left;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="500" width="220" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-note" value="Note: ALBは学習用にHTTPを0.0.0.0/0から受けます。実運用ではCloudFront経由に制限する設計を検討します。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFBE6;strokeColor=#F2C94C;fontSize=13;align=left;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="730" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-e-client-cf" value="HTTPS" style="endArrow=block;html=1;rounded=0;strokeColor=#172B4D;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t1-client" target="t1-cloudfront">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-e-cf-alb" value="HTTP origin" style="endArrow=block;html=1;rounded=0;strokeColor=#172B4D;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t1-cloudfront" target="t1-alb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-e-alb-ecs" value="Target group :8000" style="endArrow=block;html=1;rounded=0;strokeColor=#172B4D;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t1-alb" target="t1-ecs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-e-ecs-rds" value="DATABASE_URL / TCP :5432" style="endArrow=block;html=1;rounded=0;strokeColor=#172B4D;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t1-ecs" target="t1-rds">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-e-bastion-rds" value="psql migration / TCP :5432" style="endArrow=block;html=1;rounded=0;dashed=1;strokeColor=#147EBA;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t1-bastion" target="t1-rds">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-e-client-bastion" value="SSH :22" style="endArrow=block;html=1;rounded=0;dashed=1;strokeColor=#147EBA;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t1-client" target="t1-bastion">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="230" />
+              <mxPoint x="835" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t1-e-ecs-nat" value="outbound" style="endArrow=block;html=1;rounded=0;strokeColor=#2E7D32;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t1-ecs" target="t1-nat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-e-nat-igw" value="0.0.0.0/0" style="endArrow=block;html=1;rounded=0;strokeColor=#2E7D32;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t1-nat" target="t1-igw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-e-github-ecr" value="docker push" style="endArrow=block;html=1;rounded=0;strokeColor=#D99000;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t1-github" target="t1-ecr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-e-github-ecs" value="deploy service" style="endArrow=block;html=1;rounded=0;strokeColor=#6F42C1;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t1-github" target="t1-ecs">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="260" y="720" />
+              <mxPoint x="685" y="720" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t1-e-ecs-ecr" value="pull image" style="endArrow=block;html=1;rounded=0;strokeColor=#D99000;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t1-ecs" target="t1-ecr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-e-ecs-logs" value="awslogs" style="endArrow=block;html=1;rounded=0;strokeColor=#D99000;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t1-ecs" target="t1-logs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t1-e-iam-ecs" value="execution role" style="endArrow=block;html=1;rounded=0;dashed=1;strokeColor=#D99000;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t1-iam" target="t1-ecs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="task2-eventbridge-sfn-lambda-slack" name="課題2 EventBridge-SFN-Lambda-Slack">
+    <mxGraphModel dx="1500" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t2-title" value="課題2: EventBridge + Step Functions + Lambda + Slack通知" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#172B4D;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="860" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-aws" value="AWS account / serverless notification workflow" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D99000;dashed=1;verticalAlign=top;fontStyle=1;fontColor=#172B4D;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="1180" height="630" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-rule" value="EventBridge Rule&lt;br&gt;rate(1 day)&lt;br&gt;scheduled JSON input" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="280" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-sfn" value="Step Functions&lt;br&gt;notify-slack&lt;br&gt;state machine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#6F42C1;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="280" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-lambda" value="Lambda&lt;br&gt;Python 3.12&lt;br&gt;notify-slack" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#FFE0B2;strokeColor=#F57C00;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="270" width="180" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-ssm" value="SSM Parameter Store&lt;br&gt;SecureString&lt;br&gt;Slack webhook URL" style="shape=cylinder3d;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#E9F7EF;strokeColor=#2E7D32;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="500" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-logs" value="CloudWatch Logs&lt;br&gt;Lambda execution logs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CC;strokeColor=#D99000;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="500" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-slack" value="Slack Incoming&lt;br&gt;Webhook" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3FCEF;strokeColor=#2E7D32;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="280" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-event-role" value="IAM Role&lt;br&gt;events.amazonaws.com&lt;br&gt;states:StartExecution" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F5F7;strokeColor=#42526E;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="100" y="560" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-sfn-role" value="IAM Role&lt;br&gt;states.amazonaws.com&lt;br&gt;lambda:InvokeFunction" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F5F7;strokeColor=#42526E;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="390" y="560" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-lambda-role" value="IAM Role&lt;br&gt;lambda.amazonaws.com&lt;br&gt;ssm:GetParameter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F5F7;strokeColor=#42526E;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="920" y="280" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-secret-note" value="Secret管理&lt;br&gt;&lt;br&gt;Webhook URLはSSM SecureStringに保存。Lambda環境変数にはParameter名のみを設定します。&lt;br&gt;&lt;br&gt;注意: Terraform stateにはsensitive値が残ります。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFBE6;strokeColor=#F2C94C;fontSize=13;align=left;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="980" y="130" width="210" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-e-rule-sfn" value="StartExecution" style="endArrow=block;html=1;rounded=0;strokeColor=#172B4D;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t2-rule" target="t2-sfn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-e-sfn-lambda" value="InvokeFunction" style="endArrow=block;html=1;rounded=0;strokeColor=#172B4D;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t2-sfn" target="t2-lambda">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-e-lambda-ssm" value="GetParameter" style="endArrow=block;html=1;rounded=0;strokeColor=#2E7D32;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t2-lambda" target="t2-ssm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-e-lambda-slack" value="POST message" style="endArrow=block;html=1;rounded=0;strokeColor=#2E7D32;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t2-lambda" target="t2-slack">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-e-lambda-logs" value="execution logs" style="endArrow=block;html=1;rounded=0;strokeColor=#D99000;fontSize=12;fontStyle=1;" edge="1" parent="1" source="t2-lambda" target="t2-logs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-e-role-rule" value="assumes" style="endArrow=block;html=1;rounded=0;dashed=1;strokeColor=#42526E;fontSize=12;" edge="1" parent="1" source="t2-event-role" target="t2-rule">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-e-role-sfn" value="permission" style="endArrow=block;html=1;rounded=0;dashed=1;strokeColor=#42526E;fontSize=12;" edge="1" parent="1" source="t2-event-role" target="t2-sfn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-e-sfnrole-sfn" value="assumes" style="endArrow=block;html=1;rounded=0;dashed=1;strokeColor=#42526E;fontSize=12;" edge="1" parent="1" source="t2-sfn-role" target="t2-sfn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-e-sfnrole-lambda" value="permission" style="endArrow=block;html=1;rounded=0;dashed=1;strokeColor=#42526E;fontSize=12;" edge="1" parent="1" source="t2-sfn-role" target="t2-lambda">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-e-lambdarole-lambda" value="assumes" style="endArrow=block;html=1;rounded=0;dashed=1;strokeColor=#42526E;fontSize=12;" edge="1" parent="1" source="t2-lambda-role" target="t2-lambda">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t2-e-lambdarole-ssm" value="permission" style="endArrow=block;html=1;rounded=0;dashed=1;strokeColor=#42526E;fontSize=12;" edge="1" parent="1" source="t2-lambda-role" target="t2-ssm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1015" y="450" />
+              <mxPoint x="770" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

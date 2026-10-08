@@ -4,6 +4,9 @@ FastAPIでタスク管理REST APIを作り、DockerイメージをECRへpushし�
 
 ## 構成
 
+draw.ioの構成図は `../AWS_architecture_diagrams.drawio` にあります。
+Mermaid版の構成メモは `../AWS_architecture_diagrams.md` にあります。
+
 ```text
 Client
   -> CloudFront
